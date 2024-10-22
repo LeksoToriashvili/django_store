@@ -1,6 +1,7 @@
 from enum import unique
 
 from django.db import models
+from django.utils.text import slugify
 
 
 class Category(models.Model):
@@ -21,6 +22,13 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/', blank=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        # Generate slug combining ID and name
+        if not self.slug and self.id is not None:
+            self.slug = f"{self.id}-{slugify(self.name)}"
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name

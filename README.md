@@ -1,1 +1,2 @@
-Unfinished homework(Django Template Rendering & Views & URLS).
+database filled with random data and images.  
+works most pages with category and product details.
