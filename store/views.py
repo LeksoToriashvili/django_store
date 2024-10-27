@@ -4,13 +4,13 @@ from lib2to3.fixes.fix_input import context
 from tkinter.font import names
 from unicodedata import category
 
-from django.db.models import Count
+from django.db.models import Count, Q
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.template.context_processors import request
 
 from store.models import Product, Category
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, View
 
 
 class ProductListView(ListView):
