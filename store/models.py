@@ -8,6 +8,13 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(blank=True)
+
+    def save(self, *args, **kwargs):
+        # Generate slug combining ID and name
+        if not self.slug and self.id is not None:
+            self.slug = f"{self.id}-{slugify(self.name)}"
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
