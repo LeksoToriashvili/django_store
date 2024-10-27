@@ -23,14 +23,16 @@ from django.urls import path, include
 from store import views
 
 import store
-from store.views import product_details, product_list
+from store.views import ProductListView, ProductDetailView
+from order.views import CartListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
-    path('product/<slug:slug>/', store.views.product_details, name='product_details'),
-    path('category/', store.views.product_list, name='product_list'),
-    path('category/<slug:slug>/', store.views.product_list, name='product_list'),
+    path('product/<slug:slug>/', ProductDetailView.as_view(), name='product_details'),
+    path('category/', ProductListView.as_view(), name='product_list'),
+    path('category/<slug:slug>/', ProductListView.as_view(), name='product_list'),
+    path('cart/', CartListView.as_view(), name='cart_list'),
 ]
 
 if settings.DEBUG:

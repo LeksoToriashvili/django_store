@@ -8,16 +8,16 @@
     {% endblock %}
 </head>
 {% block body %}
-<body>
+
 <div class="container">
 
 <div class="hero">
     <h1>Welcome to My Website</h1>
     <p>This is the online fruit shopping website.</p>
-    <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+    <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg">Get Started</a>
 </div>
 
 </div>
-</body>
+
 {% endblock %}
 </html>

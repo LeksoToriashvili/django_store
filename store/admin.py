@@ -4,7 +4,7 @@ from store.models import Product, Category
 
 @admin.register(Category)
 class AdminCategory(admin.ModelAdmin):
-    list_display = ('name', 'description', 'created_at')
+    list_display = ('name', 'description', 'slug', 'created_at')
 
 
 @admin.register(Product)
