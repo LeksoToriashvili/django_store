@@ -44,7 +44,3 @@ A full-featured e-commerce application built with Django. This project enables u
 
 - **Access the Application**: Visit `http://127.0.0.1:8000/` to explore the store.
 - **Admin Dashboard**: Accessible at `http://127.0.0.1:8000/admin/`.
-
-## 📝 License
-
-This project is licensed under the **MIT License**.
