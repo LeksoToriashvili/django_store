@@ -25,6 +25,7 @@ from store import views
 import store
 from store.views import ProductListView, ProductDetailView
 from order.views import CartListView, AddToCartView, CheckoutView
+from core.views import RegisterView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('cart/', CartListView.as_view(), name='cart_list'),
     path('add-to-cart/', AddToCartView.as_view(), name='add_to_cart'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
+    path('register/', RegisterView.as_view(), name='register'),
 ]
 
 if settings.DEBUG:
